@@ -1,9 +1,0 @@
-CREATE TABLE students(id SERIAL PRIMARY KEY,
-	university_code INTEGER,
-	college_name VARCHAR(100),
-	programme_code VARCHAR(10),
-	programme_name VARCHAR(50),
-	enrolment_number VARCHAR(20) UNIQUE NOT NULL,
-	student_name VARCHAR(50) NOT NULL,
-	enrolment_year INTEGER NOT NULL
-	);

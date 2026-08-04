@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="reg">
+    <div class="title-block">
+      <h1>Student Register</h1>
+      <p>Upload a records sheet, filter by college / stream / class, push the matching rows to the database.</p>
+    </div>
+    <div class="seal">
+      <span class="no" id="totalCount">0</span>
+      RECORDS ON FILE
+    </div>
+  </header>
+
+  <div class="upload-strip">
+    <label class="file-btn" for="csvInput">Upload CSV</label>
+    <input type="file" id="csvInput" accept=".csv">
+    <span id="fileStatus">No file uploaded yet.</span>
+  </div>
+
+  <div class="filter-bar">
+    <div class="field">
+      <label for="collegeFilter">College</label>
+      <select id="collegeFilter"><option value="">All colleges</option></select>
+    </div>
+    <div class="field">
+      <label for="streamFilter">Stream</label>
+      <select id="streamFilter"><option value="">All streams</option></select>
+    </div>
+    <div class="field">
+      <label for="classFilter">Class (Enrolment Year)</label>
+      <select id="classFilter"><option value="">All years</option></select>
+    </div>
+    <div class="field">
+      <label for="nameFilter">Student Name</label>
+      <input type="text" id="nameFilter" placeholder="Search by name...">
+    </div>
+    <div class="field reset-field">
+      <button id="resetBtn">Reset filters</button>
+    </div>
+  </div>
+
+  <div class="result-line">
+    <span id="resultCount">0 students shown</span>
+    <button id="moveBtn" disabled>Move to Database</button>
+  </div>
+
+  <div class="ledger">
+    <table>
+      <thead>
+        <tr>
+          <th class="mono-h">Univ. Code</th>
+          <th>College</th>
+          <th class="mono-h">Prog. Code</th>
+          <th>Stream</th>
+          <th class="mono-h">Class</th>
+          <th class="mono-h">Enrolment No.</th>
+          <th>Student Name</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr class="empty-row"><td colspan="7">Upload a CSV to see records here.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="result-line" style="margin-top:44px;">
+    <span style="font-family:'Source Serif 4',serif;font-size:19px;color:var(--navy);font-weight:600;">Stored Records</span>
+    <button id="loadStoredBtn">Load Saved Students</button>
+  </div>
+
+  <div class="ledger">
+    <table>
+      <thead>
+        <tr>
+          <th class="mono-h">Univ. Code</th>
+          <th>College</th>
+          <th class="mono-h">Prog. Code</th>
+          <th>Stream</th>
+          <th class="mono-h">Class</th>
+          <th class="mono-h">Enrolment No.</th>
+          <th>Student Name</th>
+        </tr>
+      </thead>
+      <tbody id="storedTableBody">
+        <tr class="empty-row"><td colspan="7">Click &quot;Load Saved Students&quot; to view what's stored in the database.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

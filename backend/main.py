@@ -9,13 +9,20 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+
+origins = [
+    "http://127.0.0.1:5500",  # Local development
+    "http://localhost:5500",
+    "https://your-project.vercel.app", 
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500"],
+    allow_origins=origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.post("/upload-csv")
 async def upload_csv(file : UploadFile = File(...)):

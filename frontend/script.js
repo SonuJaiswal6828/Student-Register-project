@@ -1,5 +1,5 @@
 // ---- Configure this to match your backend ----
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://student-register-project-v8hh.onrender.com";
 
 let allStudents = [];   // full parsed dataset from upload
 let visibleStudents = []; // currently filtered set
